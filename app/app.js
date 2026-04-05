@@ -30,19 +30,128 @@ portfolio: `  <div class="portfolio-holder">
                 <img src="https://images.unsplash.com/photo-1564868405024-af2aa9752aac?q=80&w=893&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
              </div>
         </div>`,
+about: `<div class="about-container">
+        <div class="about-contents">
+            <h1>About Hanahaki</h1>
+            <div class="about-image"></div>
+            <div class="about-text"><p>
+                Hanahaki is a professional flower arrangement business specializing in the art of Ikebana. We create stunning floral designs that bring beauty and tranquility to any space. Our expert florists are passionate about their craft and dedicated to providing exceptional service to our clients.
+            </p>
+            <p>Among our staff is Mochi, a talented Ikebana cat-ist with over 2 years of experience. Mochi qualitty checks each arrangement to ensure it meets our high standards.</p></div>
+
+            <div class="about-ikebana">
+            <h2>What is Ikebana?</h2>
+            <h3>Meaning: 'arranging flowers' or 'making flowers alive'</h3>
+            <div class="ikebana-image"></div>
+            <div class="ikebana-text"><p>Ikebana is the art of beautifully arranging flora, branches, and other natural elements in artful containers. This art evolved in Japan over seven centuries, and takes many years to master.</p>
+            <p>There are many different styles of Ikebana, each with its own unique characteristics and techniques. Born in Buddhist temples, it has a close relatinship to Zen Buddhism.</p></div>
+
+            </div>
+        </div>
+      </div>`,
+contact: `   <div class="contact-header">
+            <h1>Contact Us</h1>
+            <h3>Please complete the form for a free quote!</h3>
+        </div>
+      <div class="contact-container">
+        <div class="contact-contents">
+            <div class="contact-map">
+                <div class="contact-map-holder">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56068.228714150224!2d139.62094296234088!3d35.66693751885442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b9d1332d965%3A0x16e65ed06b32c0a2!2sKatoka%20Otanimikano%20Omotesandoikebana%20School!5e0!3m2!1sen!2sus!4v1775364604861!5m2!1sen!2sus" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="contact-address"><br>Japan, 〒107-0062 Tokyo, Minato City, Minamiaoyama, </br> 4 南青山Ⅱ <br> (デルックス南青山)  101</p></div>
+            </div>
+            <div class="contact-form">
+                <input type="text" placeholder="name...">
+                <input type="email" placeholder="email...">
+                <input type="tel" placeholder="phone...">
+              
+
+                <label class="checkbox-row">
+                    <input type="checkbox" />
+                    <span>Text messaging allowed</span>
+                </label>
+
+                <textarea placeholder="message..."></textarea>
+                <input type="button" value="Send" class="send-btn">
+
+
+            </div>
+        </div>
+      </div>`
 
 }
 
 
-//portfolio page content
+//DOM references
 
-document.querySelectorAll('.image-holder img').forEach(image => {
-    image.addEventListener('click', () => {
-        document.querySelector('.popup-imag').style.display = 'block';
-        document.querySelector('.popup-imag img').src = image.getAttribute('src');
+const app = document.getElementById('app');
+const links = document.querySelectorAll('nav a');
+
+//functions
+function setActiveLink(clickedLink){
+    links.forEach((link => {
+        link.classList.remove("active");
+        clickedLink.classList.add("active");
+    }))
+};
+
+function loadPage(pageID){
+    app.innerHTML = pages[pageID];
+
+      if (pageID === "portfolio") {
+        bindPortfolioEvents();
+    }
+
+
+}
+
+//portfolio event binding
+function bindPortfolioEvents() {
+
+    const popup = document.querySelector('.popup-imag');
+    const popupImg = popup.querySelector('img');
+    const closeBtn = document.querySelector('.popup-imag span');
+    const images = document.querySelectorAll('.image-holder img');
+
+    if (!popup || !popupImg || !closeBtn) return;
+
+    images.forEach((image) => {
+        image.addEventListener('click', () => {
+            popup.style.display = 'block';
+            popupImg.src = image.getAttribute('src');
+        });
     });
+
+    closeBtn.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
+}
+
+
+//sent message confirmation
+app.addEventListener("click", (e) => {
+  if (e.target.matches(".send-btn")) {
+    alert("Thank you for your message! We will get back to you as soon as possible.");
+  }
 });
 
-document.querySelector('.popup-imag span').addEventListener('click', () => {
-    document.querySelector('.popup-imag').style.display= 'none';
+//change page based on ID of clicked link
+function handleClick(e){
+    e.preventDefault();
+    const pageID = e.currentTarget.id;
+
+    setActiveLink(e.currentTarget);
+    loadPage(pageID);
+}
+
+//event listener - page load
+links.forEach((link) => {
+link.addEventListener('click', handleClick);
 });
+
+
+
+//initial load
+loadPage('home');
+document.getElementById("home")?.classList.add("active");

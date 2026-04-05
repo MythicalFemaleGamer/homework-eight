@@ -4,18 +4,22 @@ header {
   right: 0;
   left: 0;
   height: 60px;
+  width: 100vw;
   background-color: $secondary-color;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
   z-index: 100;
+  font-size: 1rem;
 
   .logo {
     color: $light-font-color;
+    font-size: 1.2rem;
   }
   .logo span {
     color: $accent-font-color;
+    font-size: 1.75rem;
   }
   nav {
     height: 50px;
@@ -40,5 +44,11 @@ header {
       font-weight: bold;
       background-color: $third-color;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    width: 100vw;
   }
 }

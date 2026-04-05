@@ -1,0 +1,60 @@
+.about-container {
+  .about-contents {
+    h1 {
+      font-size: 40px;
+      padding: 15px;
+      color: $accent-font-color;
+      text-align: center;
+      padding-top: 60px;
+    }
+    .about-image {
+      background-image: url("https://images.unsplash.com/photo-1697121302640-b33e74815062?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zmxvd2VyJTIwY2F0fGVufDB8fDB8fHww");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 85%;
+      height: 700px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+    .about-text {
+      text-align: left;
+      width: 85%;
+      margin: 10px auto;
+    }
+
+    .about-ikebana {
+      text-align: left;
+      width: 85%;
+      margin: 10px auto;
+
+      .ikebana-image {
+        background-image: url("https://images.pexels.com/photos/6933157/pexels-photo-6933157.jpeg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 85%;
+        height: 700px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+      }
+      .ikebana-text {
+        text-align: left;
+        width: 85%;
+        margin: 10px auto;
+      }
+      h2,
+      h3 {
+        color: $accent-font-color;
+        text-align: center;
+      }
+      h2 {
+        padding-top: 30px;
+      }
+    }
+  }
+}

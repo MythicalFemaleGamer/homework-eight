@@ -1,5 +1,5 @@
 .home-content {
-  min-width: 1080px;
+  max-width: 1080px;
   min-height: 500px;
   margin: 0 auto;
   padding: 20px;
@@ -24,5 +24,11 @@
   .home-text {
     width: 85%;
     margin: 20px auto;
+  }
+}
+
+@media (max-width: 1019px) {
+  .home-content {
+    width: 100vw;
   }
 }

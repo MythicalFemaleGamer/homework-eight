@@ -21,10 +21,11 @@ h5,
 h6,
 p {
   margin-bottom: 16px;
+  line-height: 1.5;
 }
 
 main {
-  padding: 4rem 2rem;
+  padding: 4rem 2rem 0 2rem;
   max-width: 1080px;
   margin-left: auto;
   margin-right: auto;
@@ -47,18 +48,22 @@ header {
   right: 0;
   left: 0;
   height: 60px;
+  width: 100vw;
   background-color: #562135;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
   z-index: 100;
+  font-size: 1rem;
 }
 header .logo {
   color: #ffe7de;
+  font-size: 1.2rem;
 }
 header .logo span {
   color: #9ec382;
+  font-size: 1.75rem;
 }
 header nav {
   height: 50px;
@@ -79,13 +84,18 @@ header nav a:hover {
   color: #9ec382;
 }
 header nav a.active {
-  color: #9ec382;
+  color: #562135;
   font-weight: bold;
   background-color: #e9b1cd;
 }
 
+@media (max-width: 768px) {
+  header {
+    width: 100vw;
+  }
+}
 .home-content {
-  min-width: 1080px;
+  max-width: 1080px;
   min-height: 500px;
   margin: 0 auto;
   padding: 20px;
@@ -111,6 +121,11 @@ header nav a.active {
   margin: 20px auto;
 }
 
+@media (max-width: 1019px) {
+  .home-content {
+    width: 100vw;
+  }
+}
 .portfolio-holder {
   position: relative;
   min-height: 100vh;
@@ -189,5 +204,137 @@ header nav a.active {
 @media (max-width: 768px) {
   .container .popup-image img {
     width: 95%;
+  }
+}
+.about-container .about-contents h1 {
+  font-size: 40px;
+  padding: 15px;
+  color: #9ec382;
+  text-align: center;
+  padding-top: 60px;
+}
+.about-container .about-contents .about-image {
+  background-image: url("https://images.unsplash.com/photo-1697121302640-b33e74815062?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zmxvd2VyJTIwY2F0fGVufDB8fDB8fHww");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 85%;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.about-container .about-contents .about-text {
+  text-align: left;
+  width: 85%;
+  margin: 10px auto;
+}
+.about-container .about-contents .about-ikebana {
+  text-align: left;
+  width: 85%;
+  margin: 10px auto;
+}
+.about-container .about-contents .about-ikebana .ikebana-image {
+  background-image: url("https://images.pexels.com/photos/6933157/pexels-photo-6933157.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 85%;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+}
+.about-container .about-contents .about-ikebana .ikebana-text {
+  text-align: left;
+  width: 85%;
+  margin: 10px auto;
+}
+.about-container .about-contents .about-ikebana h2,
+.about-container .about-contents .about-ikebana h3 {
+  color: #9ec382;
+  text-align: center;
+}
+.about-container .about-contents .about-ikebana h2 {
+  padding-top: 30px;
+}
+
+.contact-header h1 {
+  text-align: center;
+  padding-top: 60px;
+  color: #9ec382;
+}
+.contact-header h3 {
+  text-align: center;
+}
+
+.contact-container {
+  max-width: 1080px;
+  min-height: 500px;
+  margin: 50px auto 100px auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 30px;
+}
+.contact-container .contact-contents {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 14px;
+}
+.contact-container .contact-contents .contact-map .contact-map-holder {
+  width: 100%;
+  height: 100%;
+}
+.contact-container .contact-contents .contact-map .contact-address {
+  width: 200px;
+}
+.contact-container .contact-form {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  margin-left: 30px;
+  gap: 5px;
+}
+.contact-container .contact-form input,
+.contact-container .contact-form textarea {
+  line-height: 1.5;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #fcd1d7;
+  font-size: 1rem;
+  padding: 10px;
+  border: none;
+  color: #562135;
+}
+.contact-container .contact-form textarea {
+  padding-bottom: 50px;
+}
+.contact-container .contact-form .send-btn {
+  cursor: pointer;
+}
+.contact-container .contact-form .checkbox-row span {
+  font-size: 1rem;
+  color: #562135;
+}
+
+@media (max-width: 880px) {
+  .contact-container {
+    max-width: 100%;
+  }
+  .contact-container .contact-contents {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .contact-container .contact-form {
+    align-items: center;
+    width: 100%;
   }
 }
