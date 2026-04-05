@@ -1,0 +1,44 @@
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 60px;
+  background-color: $secondary-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 100;
+
+  .logo {
+    color: $light-font-color;
+  }
+  .logo span {
+    color: $accent-font-color;
+  }
+  nav {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    a {
+      text-decoration: none;
+      color: $light-font-color;
+      transition: color 0.3s ease;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      padding: 0.4em 1rem;
+      border-radius: 30px;
+    }
+    a:hover {
+      color: $accent-font-color;
+    }
+    a.active {
+      color: $active-color;
+      font-weight: bold;
+      background-color: $third-color;
+    }
+  }
+}

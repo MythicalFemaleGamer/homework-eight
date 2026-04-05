@@ -1,0 +1,85 @@
+.portfolio-holder {
+  position: relative;
+  min-height: 100vh;
+
+  span {
+    color: $light-font-color;
+  }
+
+  h1 {
+    font-size: 40px;
+    padding: 15px;
+    color: $accent-font-color;
+    text-align: center;
+    padding-top: 60px;
+  }
+  p {
+    width: 80%;
+    margin: 20px auto;
+    text-align: center;
+  }
+  .image-holder {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 10px;
+
+    .portf-image {
+      height: 250px;
+      width: 250px;
+      border: 10px solid $accent-color;
+      box-shadow: 0 5px 15px rgba(3, 102, 33, 0.1);
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      transform: 0.2s linear;
+    }
+    img:hover {
+      transform: scale(1.1);
+    }
+  }
+  .popup-imag {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    display: none;
+
+    span {
+      position: absolute;
+      top: 0;
+      right: 10px;
+      font-size: 40px;
+      font-weight: bolder;
+      color: $light-font-color;
+      cursor: pointer;
+      z-index: 100;
+    }
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 5px solid $accent-color;
+      border-radius: 5px;
+      width: 750px;
+      height: 85%;
+      object-fit: cover;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container .popup-image img {
+    width: 95%;
+  }
+}
